@@ -9,13 +9,20 @@ describe('account creation', () => {
      }); 
   it.only ('create account by entering all mandatory fields',()=>{
   
-    cy.AccountCreationWithMandatoryFieldsInput();
+    cy.get ('#input-firstname') .type ('bolau');
+    cy.get ('#input-lastname') .type ('doerp');
+    cy.get ('#input-email') .type ('tperov86850@lhory.com');
+    cy.get ('#input-telephone') .type ('08012345670');
+    cy.get ('#input-password') .type ('Johndoe@182');
+    cy.get ('#input-confirm') .type ('Johndoe@182');
+    cy.get ("input[value='1'][name='newsletter']") .click();
+    cy.get ("input[value='1'][name='agree']") .check();
+    cy.get("input[value='Continue']") . click();
+    cy.get("div[id='content'] h1") .should ('contain.text','Your Account Has Been Created!');  
 
 
-    
+  });
 
-
-  })
 
   // invalid test case : leave  fields empty
 
@@ -36,7 +43,7 @@ describe('account creation', () => {
     .should('contain.text','Warning: You must agree to the Privacy Policy!');
      
   
-  })
+  });
 
   // empty field validation using LOOP METHOD
 
@@ -95,7 +102,7 @@ it('should not allow account registration with an existing email',()=>{
 
 
 });
-});
+
 
 // Login Validation
 
@@ -145,7 +152,7 @@ it('add iMac to cart',()=>{
   
 
 
-})
+});
 
 
 });
