@@ -139,7 +139,7 @@ it('error message should be seen for invalid login input',()=>{
   
 });
 
-it.only('add iMac to cart',()=>{
+it('add iMac to cart',()=>{
   cy.get('ul.nav >li.dropdown')
   .contains('Desktops')
   .trigger('mouseover');
@@ -155,6 +155,7 @@ it.only('add iMac to cart',()=>{
 
 
 })
+
 
 
 });
